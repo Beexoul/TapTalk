@@ -11,7 +11,7 @@ const Login = () => {
 
   return (
     <div className='login'>
-      <img src={assets.logo_icon} alt="Logo" className='logo' />
+      <img src={assets.logo_big} alt="Logo" className='logo' />
       <form className='login-form'>
         <h2>{currState}</h2>
         {currState === "Sign up" && (

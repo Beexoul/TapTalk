@@ -1,0 +1,94 @@
+.ls{
+    background: #001030;
+    color: white;
+    height: 75vh;   
+}
+
+
+.ls-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 0;
+
+}
+
+.ls-nav .logo{
+    max-width: 140px;
+}
+
+.ls-nav .menu img{
+    max-height: 20px;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.ls1{
+    padding: 20px;
+}
+
+.ls-search{
+    background-color: #002670;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+
+}
+
+.ls-search img{
+    width: 16px;
+}
+.ls-search input{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 11px;
+}
+
+.ls-search input::placeholder{
+    color: white;
+}
+
+
+.ls-list{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 45vh;
+
+}
+
+.friends img{
+    width: 35px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+.friends{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.friends div{
+    display: flex;
+    flex-direction: column;
+}
+
+.friends span{
+    color: #9f9f9f;
+    font-size: 11px;
+
+}
+
+.friends:hover{
+    background-color: #077eff;
+}
+
+.friends:hover span{
+    color: white;
+}

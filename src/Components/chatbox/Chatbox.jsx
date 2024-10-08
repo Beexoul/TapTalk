@@ -14,7 +14,7 @@ const Chatbox = () => {
 
       <div className="chat-msg">
         <div className="s-msg">
-          <p className="msg"> My Name is Safal Neupane, I am Gay </p>
+          <p className="msg"> My Name is Safal Neupane, I am  </p>
           <div>
             <img src={assets.profile_img} alt="" />
             <p className="time">2:30 PM</p>
@@ -28,7 +28,7 @@ const Chatbox = () => {
           </div>
         </div>
         <div className="r-msg">
-          <p className="msg"> My Name is Safal Neupane, I am Gay </p>
+          <p className="msg"> My Name is Safal Neupane, I am  </p>
           <div>
             <img src={assets.profile_img} alt="" />
             <p className="time">2:30 PM</p>

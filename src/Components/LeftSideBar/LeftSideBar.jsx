@@ -11,6 +11,11 @@ const LeftSideBar = () => {
             <img src={assets.logo} className='logo' alt="Company Logo" />
             <div className="menu" aria-label="Menu">
               <img src={assets.menu_icon} className='img' alt="Menu Icon" />
+               <div className="sub-menu">
+                <p>Edit Profile</p>
+                <hr />
+                <p>Logout</p>
+               </div>
             </div>
           </div>
           <div className="ls1">

@@ -4,7 +4,7 @@ import { doc, getFirestore, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBrppN8Mv_x1HomvmI9Alwiwo7Wz5R3fIc",
+  apiKey: "useryourown",
   authDomain: "taptalk-3081d.firebaseapp.com",
   projectId: "taptalk-3081d",
   storageBucket: "taptalk-3081d.appspot.com",

@@ -1,27 +1,76 @@
 import React, { useState } from 'react';
 import './Login.css';
 import assets from '../../assets/assets.js';
+import { signup } from '../../config/Firebase.js';
 
 const Login = () => {
   const [currState, setCurrState] = useState("Sign up");
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [agreedToTerms, setAgreedToTerms] = useState(false); // Add state for checkbox
+
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+    if (currState === "Sign up") { 
+      if (agreedToTerms) {
+        signup(userName, email, password);
+      } else {
+        alert("You must agree to the terms to continue.");
+      }
+    }
+  };
 
   const toggleState = () => {
     setCurrState((prevState) => (prevState === "Sign up" ? "Login" : "Sign up"));
+ 
+    setUserName("");
+    setEmail("");
+    setPassword("");
+    setAgreedToTerms(false); 
   };
 
   return (
     <div className='login'>
       <img src={assets.logo_big} alt="Logo" className='logo' />
-      <form className='login-form'>
+      <form onSubmit={onSubmitHandler} className='login-form'>
         <h2>{currState}</h2>
         {currState === "Sign up" && (
-          <input type="text" placeholder='Username' className='form-input' required />
+          <input
+            type="text"
+            onChange={(e) => setUserName(e.target.value)}
+            value={userName}
+            placeholder='Username'
+            className='form-input'
+            required
+          />
         )}
-        <input type="email" placeholder='Email Address' className='form-input' required />
-        <input type="password" placeholder='Password' className='form-input' required />
-        <button type='submit'>{currState === "Sign up" ? "Create account" : "Login now"}</button>
+        <input
+          type="email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          placeholder='Email Address'
+          className='form-input'
+          required
+        />
+        <input
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          placeholder='Password'
+          className='form-input'
+          required
+        />
+        <button type='submit'>
+          {currState === "Sign up" ? "Create account" : "Login now"}
+        </button>
         <div className="login-term">
-          <input type="checkbox" required />
+          <input
+            type="checkbox"
+            onChange={(e) => setAgreedToTerms(e.target.checked)}
+            checked={agreedToTerms}
+            required
+          />
           <p>Agree to terms of use and privacy policy</p>
         </div>
         <div className="login-forgot">

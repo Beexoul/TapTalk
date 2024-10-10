@@ -2,6 +2,8 @@ import React from 'react';
 import './LeftSideBar.css';
 import assets from '../../assets/assets';
 import { useNavigate } from 'react-router-dom';
+import { logout } from '../../config/Firebase';
+
 
 const LeftSideBar = () => {
 
@@ -18,7 +20,7 @@ const navigate = useNavigate();
                <div className="sub-menu">
                 <p onClick={() =>navigate('/profile') } >Edit Profile</p>
                 <hr />
-                <p>Logout</p>
+                <p onClick={ () => logout()} >Logout</p>
                </div>
             </div>
           </div>

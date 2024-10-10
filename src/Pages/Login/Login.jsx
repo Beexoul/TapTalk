@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import './Login.css';
 import assets from '../../assets/assets.js';
-import { signup } from '../../config/Firebase.js';
+import { signup, login } from '../../config/Firebase.js';
 
 const Login = () => {
   const [currState, setCurrState] = useState("Sign up");
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [agreedToTerms, setAgreedToTerms] = useState(false); // Add state for checkbox
+  const [agreedToTerms, setAgreedToTerms] = useState(false); 
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
@@ -16,19 +16,20 @@ const Login = () => {
       if (agreedToTerms) {
         signup(userName, email, password);
       } else {
-        alert("You must agree to the terms to continue.");
+        alert("You must agree to the terms and privacy policy to sign up.");
       }
+    } else {
+      login(email,password)
     }
-  };
+  }
 
   const toggleState = () => {
     setCurrState((prevState) => (prevState === "Sign up" ? "Login" : "Sign up"));
- 
     setUserName("");
     setEmail("");
     setPassword("");
     setAgreedToTerms(false); 
-  };
+  }
 
   return (
     <div className='login'>
@@ -61,18 +62,20 @@ const Login = () => {
           className='form-input'
           required
         />
+        {currState === "Sign up" && (
+          <div className="login-term">
+            <input
+              type="checkbox"
+              onChange={(e) => setAgreedToTerms(e.target.checked)}
+              checked={agreedToTerms}
+              required
+            />
+            <p>Agree to terms of use and privacy policy</p>
+          </div>
+        )}
         <button type='submit'>
           {currState === "Sign up" ? "Create account" : "Login now"}
         </button>
-        <div className="login-term">
-          <input
-            type="checkbox"
-            onChange={(e) => setAgreedToTerms(e.target.checked)}
-            checked={agreedToTerms}
-            required
-          />
-          <p>Agree to terms of use and privacy policy</p>
-        </div>
         <div className="login-forgot">
           <p className="login-toggle">
             {currState === "Sign up" 
